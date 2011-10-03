@@ -2,8 +2,8 @@ package xphone;
 
 public class Handover extends Event {
 
-	public Handover(double time) {
-		super(time);
+	public Handover(int id, double time) {
+		super(id, time);
 		// TODO Auto-generated constructor stub
 	}
 
