@@ -1,0 +1,9 @@
+System Specification:
+Lenght of the highway   = 40 km 
+Number of base stations = 20
+Number of channels      = 10
+----------------------------------
+The limits defined as QoS:
+Percentage of blocked calls = 2.0%
+Percentage of dropped calls = 1.0%
+----------------------------------
