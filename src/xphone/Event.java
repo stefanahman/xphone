@@ -2,11 +2,16 @@ package xphone;
 
 public class Event {
 	double time;
+	int id;
 
-	public Event(double time) {
+	public Event(int id, double time) {
+		this.id = id;
 		this.time = time;
 	}
 
+	public int getId() {
+		return id;
+	}
 	public double getTime() {
 		return time;
 	}
