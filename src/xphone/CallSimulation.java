@@ -68,6 +68,29 @@ public class CallSimulation {
 	}
 
 	public void eventHandler(Event ev) {
+		if(ev instanceof StartCall) {
+//			When user initiates a call, a channel has to be allocated in the
+//			base station covering the users current position
+			
+//			om basstation är full block call. 
+			
+		}
+		else if(ev instanceof Handover) {
+			
+//			avallokera kanalen i aktuell basstation 
+			
+//			om nya stationen har ledig channel allokera denna
+//			och beräkna nästa handover eller endCall	
+//			om full: finns ledig reservedChannel -> använd denna och beräkna nästa handover eller endCall
+//			annars: dropCall
+			
+		}
+		else if(ev instanceof EndCall) {
+			
+//			When the user finishes the call:
+//			-a channel in the current base station is freed
+			
+		}
 	}
 
 	public double calculateInterArrivalTime() {
