@@ -16,6 +16,9 @@ public class Xphone {
 		seed = (long)Integer.parseInt(args[0]);
 		length = Integer.parseInt(args[1]);
 		replications = Integer.parseInt(args[2]);
+		warmUp = Integer.parseInt(args[3]);
+		channels = Integer.parseInt(args[4]);
+		reserved = Integer.parseInt(args[5]);
 		
 	}
 
