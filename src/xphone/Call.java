@@ -8,9 +8,10 @@ public class Call {
 	private double durationTime;
 	private int noOfHandovers;
 	
-	public Call(int id, int time) {
+	public Call(int id, double startTime, double endTime) {
 		this.id = id;
-		this.startTime = time;
+		this.startTime = startTime;
+		this.endTime = endTime;
 		this.durationTime = this.calculateCallDuration();
 		this.endTime = this.startTime + this.durationTime;
 	}
@@ -21,8 +22,8 @@ public class Call {
 	}
 	
 	public double calculateCallDuration() {
-		//TODO: Beräkna längden av samtalet
-		return durationTime;
+		
+		return (this.endTime-this.startTime);
 	}
 
 	/**
