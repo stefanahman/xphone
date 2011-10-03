@@ -6,7 +6,7 @@ public class Call {
 	private double startTime;
 	private double endTime;
 	private double durationTime;
-	private int noOfHandovers;
+	private int noOfHandovers;	
 	
 	public Call(int id, double startTime, double endTime) {
 		this.id = id;
@@ -60,4 +60,5 @@ public class Call {
 	public void setEndTime(double endTime) {
 		this.endTime = endTime;
 	}
+	
 }

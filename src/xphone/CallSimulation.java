@@ -1,13 +1,16 @@
 package xphone;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.Random;
 
 public class CallSimulation {
 
-	//TODO: Lägg till värden
 	final double ARRIVALRATE = 0.4213;
 	final double DURATION = 0.0051;
+	
+	final double MEAN = 121.495;
+	final double STD = 67.5578;
+	final double B = 39.9829;
 
 	private double clock = 0;
 
@@ -95,13 +98,20 @@ public class CallSimulation {
 
 	public double calculateInterArrivalTime() {
 		double rndSeed = rnd.nextDouble();
-		double iat = -Math.log(rndSeed)/ARRIVALRATE;
-		return iat;
+		return -Math.log(rndSeed)/ARRIVALRATE;
 	}
 
 	public double calculateCallDuration() {
 		double rndSeed = rnd.nextDouble();
-		double cd = -Math.log(rndSeed)/DURATION;
-		return cd;
+		return -Math.log(rndSeed)/DURATION;
+	}
+	
+	public double calculatePosition() {
+		return rnd.nextDouble()*B;
+	}
+	
+	public double calculateSpeed() {
+		return rnd.nextGaussian()*Math.sqrt(STD) + MEAN;
+		
 	}
 }
