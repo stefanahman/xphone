@@ -7,6 +7,7 @@ public class Event {
 
 	public Event(int id,Call call, double time) {
 		this.id = id;
+		this.call = call;
 		this.time = time;
 	}
 

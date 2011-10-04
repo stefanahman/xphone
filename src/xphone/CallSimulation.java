@@ -60,8 +60,10 @@ public class CallSimulation {
 		clock = 0;
 		
 		double endTime = clock + calculateCallDuration();
-		call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), clock, endTime);
-		startCall = new StartCall(totalCalls, call, calculateInterArrivalTime());
+		double startTime = calculateInterArrivalTime();
+		
+		call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), startTime, endTime);
+		startCall = new StartCall(totalCalls, call, startTime);
 		totalCalls++;
 		
 		fel.insertSorted(startCall);
@@ -86,7 +88,7 @@ public class CallSimulation {
 //			base station covering the users current position
 			
 			call = ev.getCall();
-			System.out.println("Started call: "+ call.getId());
+			System.out.println("Started call: "+ call.getId() +" at: " + call.getStartTime());
 			
 			// Check if basestation is full, if then, block call
 			
@@ -101,12 +103,13 @@ public class CallSimulation {
 				System.out.println("Call blocked, all channel's full");
 			}
 			 
-//			om basstation är full block call. 
 			double endTime = clock + calculateCallDuration();
-			call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), clock, endTime);
+			double startTime = clock + calculateInterArrivalTime();
+
+			call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), startTime, endTime);
 			startCall = new StartCall(totalCalls, call, clock + calculateInterArrivalTime());
 			totalCalls++;
-			if(length >= startCall.getTime()) // Om uträknad tid överskrider stängningstid, neka samtal
+			if(length >= startCall.getTime()) //Om uträknad tid överskrider stängningstid, neka samtal
 				fel.insertSorted(startCall);
 			//TODO: Stoppa ej in i fel vid slut av tid.
 		}
@@ -123,14 +126,12 @@ public class CallSimulation {
 		else if(ev instanceof EndCall) {
 			call = ev.getCall();
 			double endPosition = call.getStartPosition() + (call.getCallDuration()*call.getSpeed());
+			
 			base = highway[(int) (endPosition%RADIUS)];
 			base.unAllocateChannel();
 			callSink.add(call);
 			
-			System.out.println("Call: " + call.getId() + " ended");
-//			When the user finishes the call:
-//			-a channel in the current base station is freed
-			
+			System.out.println("Call: " + call.getId() + " ended at: " + call.getEndTime());			
 		}
 	}
 
