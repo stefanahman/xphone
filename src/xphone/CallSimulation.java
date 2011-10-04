@@ -107,7 +107,7 @@ public class CallSimulation {
 				System.out.println("Call blocked, all channel's full");
 			}
 			
-			System.out.println(base.toString()); 
+//			System.out.println(base.toString()); 
 			
 			startTime = clock + calculateInterArrivalTime();
 			endTime = startTime + calculateCallDuration();
@@ -132,8 +132,8 @@ public class CallSimulation {
 		}
 		else if(ev instanceof EndCall) {
 			call = ev.getCall();
-			double endPosition = call.getStartPosition() + (call.getCallDuration()*call.getSpeed());
-			
+			double endPosition = call.getStartPosition() + (call.getCallDuration()/60/60*call.getSpeed());
+			System.out.println("End position: " + endPosition);
 			base = highway[(int) (call.getStartPosition()/RADIUS)%NUMBEROFBASESTATIONS];
 			base.unAllocateChannel();
 			callSink.add(call);
@@ -158,6 +158,5 @@ public class CallSimulation {
 	
 	public double calculateSpeed() {
 		return rnd.nextGaussian()*Math.sqrt(STD) + MEAN;
-		
 	}
 }

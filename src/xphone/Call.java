@@ -13,6 +13,7 @@ public class Call {
 	public Call(int id, double position, double speed, double startTime, double endTime) {
 		this.id = id;
 		this.position = position;
+		this.speed = speed;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.durationTime = this.getCallDuration();
