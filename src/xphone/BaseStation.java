@@ -67,6 +67,14 @@ public class BaseStation {
 		return this.id*this.radius+this.radius;
 	}
 	
+	public void allocateChannel(){
+		currentUsedChannels++;
+	}
+	
+	public void unAllocateChannel(){
+		currentUsedChannels--;
+	}
+	
 	public String toString(){
 		String out = "";
 		out += "Basestation id: " + this.id + "\n";

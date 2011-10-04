@@ -6,23 +6,33 @@ public class Call {
 	private double startTime;
 	private double endTime;
 	private double durationTime;
-	private int noOfHandovers;	
+	private int noOfHandovers;
+	private double speed;
+	private double position;
 	
-	public Call(int id, double startTime, double endTime) {
+	public Call(int id, double position, double speed, double startTime, double endTime) {
 		this.id = id;
+		this.position = position;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.durationTime = this.calculateCallDuration();
+		this.durationTime = this.getCallDuration();
 		this.endTime = this.startTime + this.durationTime;
 	}
 	
+	public double getSpeed() {
+		return speed;
+	}
+
+	public double getStartPosition() {
+		return position;
+	}
+
 	public int calculateNoOfHandovers() {
 		//TODO: Beräkna hur många handovers och vilka basstationer det gäller
 		return noOfHandovers;
 	}
 	
-	public double calculateCallDuration() {
-		
+	public double getCallDuration() {
 		return (this.endTime-this.startTime);
 	}
 

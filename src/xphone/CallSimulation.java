@@ -2,6 +2,7 @@ package xphone;
 
 import java.util.Iterator;
 import java.util.Random;
+import java.util.Vector;
 
 public class CallSimulation {
 
@@ -11,6 +12,9 @@ public class CallSimulation {
 	final double MEAN = 121.495;
 	final double STD = 67.5578;
 	final double B = 39.9829;
+	
+	final int NUMBEROFBASESTATIONS = 20;
+	final int RADIUS = 2;
 
 	private double clock = 0;
 
@@ -27,14 +31,15 @@ public class CallSimulation {
 	private Iterator<Event> felIt = fel.listIterator();
 
 	private Call call;
-	private Call[] calls;
+	private Vector<Call> callSink = new Vector<Call>();
+	
+	private BaseStation base;
+	private BaseStation[] highway = new BaseStation[NUMBEROFBASESTATIONS];
 
 	private Event currentEvent;
 	private StartCall startCall;
 	private EndCall endCall;
 	private Handover handover;
-
-
 
 	public CallSimulation(long rndSeed, int length, int warmUp, int channels, int reservedChannels) {
 		this.length = length;
@@ -43,14 +48,22 @@ public class CallSimulation {
 		this.reservedChannels = reservedChannels;
 
 		rnd.setSeed(rndSeed);
+		
+		for(int i = 0;i < NUMBEROFBASESTATIONS; i++){
+			highway[i] = new BaseStation(i, this.channels, this.reservedChannels);
+		}
 
 		run();
 	}
 
 	public void run() {
 		clock = 0;
-		totalCalls++;	
-		startCall = new StartCall(totalCalls, calculateInterArrivalTime());
+		
+		double endTime = clock + calculateCallDuration();
+		call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), clock, endTime);
+		startCall = new StartCall(totalCalls, call, calculateInterArrivalTime());
+		totalCalls++;
+		
 		fel.insertSorted(startCall);
 
 		do{
@@ -71,16 +84,28 @@ public class CallSimulation {
 			
 //			When user initiates a call, a channel has to be allocated in the
 //			base station covering the users current position
-			double endTime = clock + calculateCallDuration();
-			call = new Call(totalCalls, clock, endTime);
-			System.out.println("Started call: "+ call.getId());
-
-			endCall = new EndCall(totalCalls, endTime);
-			fel.insertSorted(endCall);
 			
+			call = ev.getCall();
+			System.out.println("Started call: "+ call.getId());
+			
+			// Check if basestation is full, if then, block call
+			
+			base = highway[(int) (call.getStartPosition()%RADIUS)];
+			if(!base.isFull()){
+				System.out.println("Planning call "+ call.getId() +" to end at: " + call.getEndTime());
+				endCall = new EndCall(totalCalls, call, call.getEndTime());
+				fel.insertSorted(endCall);
+				base.allocateChannel();
+				
+			} else {
+				System.out.println("Call blocked, all channel's full");
+			}
+			 
 //			om basstation är full block call. 
+			double endTime = clock + calculateCallDuration();
+			call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), clock, endTime);
+			startCall = new StartCall(totalCalls, call, clock + calculateInterArrivalTime());
 			totalCalls++;
-			startCall = new StartCall(totalCalls, clock + calculateInterArrivalTime());
 			if(length >= startCall.getTime()) // Om uträknad tid överskrider stängningstid, neka samtal
 				fel.insertSorted(startCall);
 			//TODO: Stoppa ej in i fel vid slut av tid.
@@ -96,7 +121,13 @@ public class CallSimulation {
 			
 		}
 		else if(ev instanceof EndCall) {
-			System.out.println("Call: "+ ev.getId() +" ended");
+			call = ev.getCall();
+			double endPosition = call.getStartPosition() + (call.getCallDuration()*call.getSpeed());
+			base = highway[(int) (endPosition%RADIUS)];
+			base.unAllocateChannel();
+			callSink.add(call);
+			
+			System.out.println("Call: " + call.getId() + " ended");
 //			When the user finishes the call:
 //			-a channel in the current base station is freed
 			
@@ -113,7 +144,7 @@ public class CallSimulation {
 		return -Math.log(rndSeed)/DURATION;
 	}
 	
-	public double calculatePosition() {
+	public double calculateStartPosition() {
 		return rnd.nextDouble()*B;
 	}
 	

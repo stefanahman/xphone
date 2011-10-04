@@ -7,8 +7,8 @@ public class Handover extends Event {
 	
 	
 	
-	public Handover(int id, double time, BaseStation currentBaseStation, BaseStation nextBaseStation) {
-		super(id, time);
+	public Handover(int id, Call call, double time, BaseStation currentBaseStation, BaseStation nextBaseStation) {
+		super(id, call, time);
 		// TODO Auto-generated constructor stub
 	}
 
