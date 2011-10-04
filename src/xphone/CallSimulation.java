@@ -1,6 +1,6 @@
 package xphone;
 
-//import java.util.Iterator;
+import java.util.Iterator;
 import java.util.Random;
 
 public class CallSimulation {
@@ -24,7 +24,7 @@ public class CallSimulation {
 	private int totalCalls = 0;
 
 	private FutureEventList fel = new FutureEventList();
-//	private Iterator<Event> felIt = fel.listIterator();
+	private Iterator<Event> felIt = fel.listIterator();
 
 	private Call call;
 	private Call[] calls;
@@ -49,34 +49,41 @@ public class CallSimulation {
 
 	public void run() {
 		clock = 0;
-		totalCalls++;
-		double startTime = clock + calculateInterArrivalTime();
-		double endTime = clock + calculateCallDuration();
-
-		call = new Call(totalCalls, clock + startTime, clock + endTime);
-		startCall = new StartCall(totalCalls, startTime);
+		totalCalls++;	
+		startCall = new StartCall(totalCalls, calculateInterArrivalTime());
 		fel.insertSorted(startCall);
 
 		do{
 			currentEvent = fel.getFirst();
-			clock= currentEvent.getTime();
+			clock=currentEvent.getTime();
 
 			eventHandler(currentEvent);
 			fel.removeFirst();
 			if((clock > length) && (fel.size() <= 0)) // kolla om vi ska bryta
 				break; 
-		}while(!fel.isEmpty()); // ev (felIt.hasNext())
+		}while(felIt.hasNext()); // ev (felIt.hasNext())
 
 
 	}
 
 	public void eventHandler(Event ev) {
 		if(ev instanceof StartCall) {
+			
 //			When user initiates a call, a channel has to be allocated in the
 //			base station covering the users current position
+			double endTime = clock + calculateCallDuration();
+			call = new Call(totalCalls, clock, endTime);
+			System.out.println("Started call: "+ call.getId());
+
+			endCall = new EndCall(totalCalls, endTime);
+			fel.insertSorted(endCall);
 			
 //			om basstation är full block call. 
-			
+			totalCalls++;
+			startCall = new StartCall(totalCalls, clock + calculateInterArrivalTime());
+			if(length >= startCall.getTime()) // Om uträknad tid överskrider stängningstid, neka samtal
+				fel.insertSorted(startCall);
+			//TODO: Stoppa ej in i fel vid slut av tid.
 		}
 		else if(ev instanceof Handover) {
 			
@@ -89,7 +96,7 @@ public class CallSimulation {
 			
 		}
 		else if(ev instanceof EndCall) {
-			
+			System.out.println("Call: "+ ev.getId() +" ended");
 //			When the user finishes the call:
 //			-a channel in the current base station is freed
 			
