@@ -7,13 +7,12 @@ public class BaseStation {
 	int reservedChannels = 0;
 	int currentUsedChannels = 0;
 	int currentUsedReservedChannels = 0;
-	int radius = 0;
+	int radius = 2;
 	
-	BaseStation(int id, int channels, int reservedChannels, int radius){
+	BaseStation(int id, int channels, int reservedChannels){
 		this.id = id;
 		this.channels = channels;
 		this.reservedChannels = reservedChannels;
-		this.radius = radius;
 	}
 	
 	public int getId() {
@@ -28,11 +27,11 @@ public class BaseStation {
 		return reservedChannels;
 	}
 	
-	public int getCurrentNumberOfCalls() {
+	public int getCurrentUsedChannels() {
 		return currentUsedChannels;
 	}
 	
-	public void setCurrentNumberOfCalls(int currentUsedChannels) {
+	public void setCurrentUsedChannels(int currentUsedChannels) {
 		this.currentUsedChannels = currentUsedChannels;
 	}
 	
@@ -60,4 +59,21 @@ public class BaseStation {
 		return currentUsedReservedChannels < reservedChannels;
 	}
 	
+	public int getStartRadius(){
+		return this.id*this.radius;
+	}
+	
+	public int getEndRadius(){
+		return this.id*this.radius+this.radius;
+	}
+	
+	public String toString(){
+		String out = "";
+		out += "Basestation id: " + this.id + "\n";
+		out += "Range: " + getStartRadius() + " - " + getEndRadius() + "\n";
+		out += "Used std. channels: " + getCurrentUsedChannels() + "\n";
+		out += "Used res. channels: " + getCurrentUsedReservedChannels() + "\n";
+		return out;
+		
+	}
 }
