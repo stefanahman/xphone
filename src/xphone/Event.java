@@ -1,10 +1,12 @@
 package xphone;
 
 public class Event {
+	
 	Call call;
 	double time;
 	int id;
-
+	double timeCreated;
+	
 	public Event(int id,Call call, double time) {
 		this.id = id;
 		this.call = call;
@@ -25,6 +27,10 @@ public class Event {
 	public Call getCall(){
 		return this.call;
 		
+	}
+	
+	public double getTimeCreated() {
+		return timeCreated;
 	}
 
 	public int compareTo(Event evt) {

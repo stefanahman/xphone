@@ -14,6 +14,7 @@ public class CallSimulation {
 	final double B = 39.9829;
 	
 	final int NUMBEROFBASESTATIONS = 20;
+	final int LENGTHOFHIGHWAY = 40;
 	final int RADIUS = 2;
 
 	private double clock = 0;
@@ -74,7 +75,7 @@ public class CallSimulation {
 		do{
 			currentEvent = fel.getFirst();
 			clock = currentEvent.getTime();
-
+			
 			eventHandler(currentEvent);
 			fel.removeFirst();
 			if((clock > length) && (fel.size() <= 0)) // kolla om vi ska bryta
@@ -91,24 +92,31 @@ public class CallSimulation {
 //			base station covering the users current position
 			
 			call = ev.getCall();
-			System.out.println("Started call "+ call.getId() +" at: " + call.getStartTime()+ " position: " + call.getStartPosition() +" station: " + (int) (call.getStartPosition()/RADIUS)%NUMBEROFBASESTATIONS);
+			System.out.println("Call "+ call.getId() +" started at:	time: " + call.getStartTime()+ ",	position: " + call.getPosition() +",	Station: " + (int) (call.getPosition()/RADIUS)%NUMBEROFBASESTATIONS);
 			
 			// Check if basestation is full, if then, block call
 			
-			base = highway[(int) (call.getStartPosition()/RADIUS)%NUMBEROFBASESTATIONS];
-			
-			if(!base.isFull()){
-				System.out.println("Planning call "+ call.getId() +" to end at: " + call.getEndTime());
-				endCall = new EndCall(totalCalls, call, call.getEndTime());
-				fel.insertSorted(endCall);
+			base = highway[(int) (call.getPosition()/RADIUS)%NUMBEROFBASESTATIONS];
+			if(base.isFull()){
+//				System.out.println("Call blocked, all channel's full");
+			} else {
+				System.out.println("Call "+ call.getId() +" pla to end at:	time: " + call.getEndTime() + ",	position: " + call.getPositionEndCall()  +",	Station: " + ((int) (call.getPositionEndCall()/RADIUS)%NUMBEROFBASESTATIONS));
+				
 				base.allocateChannel();
 				
-			} else {
-				System.out.println("Call blocked, all channel's full");
+				double distanceToHandover = base.getEndRadius() - call.getPosition();
+				double distanceToEndCall = call.getPositionEndCall() - call.getPosition();
+				
+				System.out.println("Call " + call.getId() + " distanceToHandover " + distanceToHandover);
+				System.out.println("Call " + call.getId() + " distanceToEndCall " + distanceToEndCall);
+				
+				currentEvent = call.generateNextEvent(clock, distanceToHandover, distanceToEndCall);
+				fel.insertSorted(currentEvent);
 			}
 			
 //			System.out.println(base.toString()); 
 			
+			// Calculate next event
 			startTime = clock + calculateInterArrivalTime();
 			endTime = startTime + calculateCallDuration();
 
@@ -122,6 +130,29 @@ public class CallSimulation {
 		}
 		else if(ev instanceof Handover) {
 			
+			call = ev.getCall();
+			
+			double newPosition = ((call.getPosition() + ((clock-ev.getTimeCreated())/3600*call.getSpeed())) % LENGTHOFHIGHWAY);
+			
+			System.out.println("Call "+ call.getId() +" new position: " + newPosition + "km at: " + ev.time+"s");
+			int baseIndex = ((int) ((call.getPosition()/RADIUS))%NUMBEROFBASESTATIONS)+1;
+			if (baseIndex >= 19) {
+				baseIndex = 0;
+			}
+			System.out.println("baseIndex " + baseIndex);
+			base = highway[baseIndex];
+//			System.out.println("BaseId " + base.id);
+			
+//			System.out.println("newPosition " + newPosition);
+			call.setPosition(newPosition);
+			
+			double distanceToHandover = base.getEndRadius() - call.getPosition();
+			double distanceToEndCall = call.getPositionEndCall() - call.getPosition();
+//			System.out.println("distanceToHandover " + distanceToHandover);
+//			System.out.println("distanceToEndCall " + distanceToEndCall);
+			
+			currentEvent = call.generateNextEvent(clock, distanceToHandover, distanceToEndCall);
+			fel.insertSorted(currentEvent);
 //			avallokera kanalen i aktuell basstation 
 			
 //			om nya stationen har ledig channel allokera denna
@@ -132,9 +163,9 @@ public class CallSimulation {
 		}
 		else if(ev instanceof EndCall) {
 			call = ev.getCall();
-			double endPosition = call.getStartPosition() + (call.getCallDuration()/60/60*call.getSpeed());
-			System.out.println("End position: " + endPosition);
-			base = highway[(int) (call.getStartPosition()/RADIUS)%NUMBEROFBASESTATIONS];
+			double endPosition = call.getPosition() + (call.getCallDuration()/60/60*call.getSpeed());
+			//System.out.println("End position: " + endPosition);
+			base = highway[(int) (call.getPosition()/RADIUS)%NUMBEROFBASESTATIONS];
 			base.unAllocateChannel();
 			callSink.add(call);
 			

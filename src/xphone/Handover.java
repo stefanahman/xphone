@@ -2,22 +2,10 @@ package xphone;
 
 public class Handover extends Event {
 	
-	private BaseStation currentBaseStation;
-	private BaseStation nextBaseStation;
-	
-	
-	
-	public Handover(int id, Call call, double time, BaseStation currentBaseStation, BaseStation nextBaseStation) {
+	public Handover(int id, Call call,double timeCreated, double time) {
 		super(id, call, time);
 		// TODO Auto-generated constructor stub
+		this.timeCreated = timeCreated;
 	}
-
-	public BaseStation getCurrentBaseStation() {
-		return currentBaseStation;
-	}
-
-	public BaseStation getNextBaseStation() {
-		return nextBaseStation;
-	}
-
+	
 }
