@@ -91,11 +91,12 @@ public class CallSimulation {
 //			base station covering the users current position
 			
 			call = ev.getCall();
-			System.out.println("Started call: "+ call.getId() +" at: " + call.getStartTime());
+			System.out.println("Started call "+ call.getId() +" at: " + call.getStartTime()+ " position: " + call.getStartPosition() +" station: " + (int) (call.getStartPosition()/RADIUS)%NUMBEROFBASESTATIONS);
 			
 			// Check if basestation is full, if then, block call
 			
-			base = highway[(int) (call.getStartPosition()%RADIUS)];
+			base = highway[(int) (call.getStartPosition()/RADIUS)%NUMBEROFBASESTATIONS];
+			
 			if(!base.isFull()){
 				System.out.println("Planning call "+ call.getId() +" to end at: " + call.getEndTime());
 				endCall = new EndCall(totalCalls, call, call.getEndTime());
@@ -105,7 +106,8 @@ public class CallSimulation {
 			} else {
 				System.out.println("Call blocked, all channel's full");
 			}
-			 
+			
+			System.out.println(base.toString()); 
 			
 			startTime = clock + calculateInterArrivalTime();
 			endTime = startTime + calculateCallDuration();
@@ -132,7 +134,7 @@ public class CallSimulation {
 			call = ev.getCall();
 			double endPosition = call.getStartPosition() + (call.getCallDuration()*call.getSpeed());
 			
-			base = highway[(int) (endPosition%RADIUS)];
+			base = highway[(int) (call.getStartPosition()/RADIUS)%NUMBEROFBASESTATIONS];
 			base.unAllocateChannel();
 			callSink.add(call);
 			

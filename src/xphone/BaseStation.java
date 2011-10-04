@@ -79,8 +79,8 @@ public class BaseStation {
 		String out = "";
 		out += "Basestation id: " + this.id + "\n";
 		out += "Range: " + getStartRadius() + " - " + getEndRadius() + "\n";
-		out += "Used std. channels: " + getCurrentUsedChannels() + "\n";
-		out += "Used res. channels: " + getCurrentUsedReservedChannels() + "\n";
+		out += "Used std. channels: " + getCurrentUsedChannels() + " of " + this.channels + "\n";
+		out += "Used res. channels: " + getCurrentUsedReservedChannels() + " of " + this.reservedChannels + "\n";
 		return out;
 		
 	}
