@@ -40,6 +40,9 @@ public class CallSimulation {
 	private StartCall startCall;
 	private EndCall endCall;
 	private Handover handover;
+	
+	private double startTime;
+	private double endTime;
 
 	public CallSimulation(long rndSeed, int length, int warmUp, int channels, int reservedChannels) {
 		this.length = length;
@@ -59,8 +62,8 @@ public class CallSimulation {
 	public void run() {
 		clock = 0;
 		
-		double endTime = clock + calculateCallDuration();
-		double startTime = calculateInterArrivalTime();
+		startTime = calculateInterArrivalTime();
+		endTime = startTime + calculateCallDuration();
 		
 		call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), startTime, endTime);
 		startCall = new StartCall(totalCalls, call, startTime);
@@ -70,7 +73,7 @@ public class CallSimulation {
 
 		do{
 			currentEvent = fel.getFirst();
-			clock=currentEvent.getTime();
+			clock = currentEvent.getTime();
 
 			eventHandler(currentEvent);
 			fel.removeFirst();
@@ -103,12 +106,14 @@ public class CallSimulation {
 				System.out.println("Call blocked, all channel's full");
 			}
 			 
-			double endTime = clock + calculateCallDuration();
-			double startTime = clock + calculateInterArrivalTime();
+			
+			startTime = clock + calculateInterArrivalTime();
+			endTime = startTime + calculateCallDuration();
 
 			call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), startTime, endTime);
-			startCall = new StartCall(totalCalls, call, clock + calculateInterArrivalTime());
+			startCall = new StartCall(totalCalls, call, startTime);
 			totalCalls++;
+			
 			if(length >= startCall.getTime()) //Om uträknad tid överskrider stängningstid, neka samtal
 				fel.insertSorted(startCall);
 			//TODO: Stoppa ej in i fel vid slut av tid.
