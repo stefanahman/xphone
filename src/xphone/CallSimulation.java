@@ -5,6 +5,10 @@ import java.util.Random;
 import java.util.Vector;
 
 public class CallSimulation {
+	
+//	 final  int a = 0;
+//	 final  int ba = 800;
+//	 final  int c = 200;
 
 	final double ARRIVALRATE = 0.4213;
 	final double DURATION = 0.0051;
@@ -76,7 +80,8 @@ public class CallSimulation {
 		// Skapa första samtalet
 		call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), startTime, endTime);
 		startCall = new StartCall(totalCalls, call, startTime);
-		totalCalls++;
+		if(clock>warmUp)
+			totalCalls++;
 		
 		// Lägg till i eventList
 		fel.insertSorted(startCall);
@@ -115,8 +120,9 @@ public class CallSimulation {
 			if(base.isFull()){
 //				System.out.println("Call blocked, all channel's full");
 //				System.out.println(base.toString());
-				blockedCalls++;
-				log.blockedCall(clock);
+				if(clock>warmUp)
+					blockedCalls++;
+//				log.blockedCall(clock);
 			} else {
 //				System.out.println("Planning to end:");
 //				System.out.println("Time: " + call.getEndTime());
@@ -148,7 +154,8 @@ public class CallSimulation {
 			
 			
 			if(length >= startCall.getTime()){ //Om uträknad tid överskrider stängningstid, neka samtal
-				totalCalls++;
+				if(clock>warmUp)
+					totalCalls++;
 				fel.insertSorted(startCall);
 			}
 			//TODO: Stoppa ej in i fel vid slut av tid.
@@ -215,8 +222,9 @@ public class CallSimulation {
 		//			annars: dropCall
 //					System.out.println(" ");
 				} else {
-					droppedCalls++;
-					log.droppedCall(clock);
+					if(clock>warmUp)
+						droppedCalls++;
+//					log.droppedCall(clock);
 //					System.out.println("Called is dropped");
 				} 
 			} else {
@@ -246,7 +254,8 @@ public class CallSimulation {
 		else if(ev instanceof EndCall) {
 //			System.out.println("-- END CALL --");
 			call = ev.getCall();
-			endedCalls++;
+			if(clock>warmUp)
+				endedCalls++;
 			//System.out.println("End position: " + endPosition);
 			base = highway[(int) (call.getPositionEndCall()/RADIUS)%NUMBEROFBASESTATIONS];
 			base.unAllocateChannel();
@@ -280,6 +289,13 @@ public class CallSimulation {
 		return rnd.nextGaussian()*Math.sqrt(STD) + MEAN;
 	}
 
+//	public double calculate() {
+//		double random = rnd.nextDouble();
+//		if(random <= 0.25)
+//			return a + Math.sqrt(random*(ba-a)*(c-a));
+//		else
+//			return ba - Math.sqrt(random*(ba-a)*(ba-c));
+//	}
 	public int getTotalCalls() {
 		return totalCalls;
 	}

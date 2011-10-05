@@ -84,10 +84,12 @@ public class Xphone {
 		System.out.println("# Reserved Channels:				"  + reservedChannels +  " 	#");
 		System.out.println("#							#");
 		System.out.println("#########################################################");
-		System.out.println("# Total average Blocked Calls:: 	" + String.format("%.5g",(double) sumBlockedCalls/replications) + "		#");
-		System.out.println("# Total average Dropped Calls:		" +  String.format("%.5g",(double) sumDroppedCalls/replications) + "		#");
-		System.out.println("# Total average Ended Calls:		" + String.format("%.5g",(double) sumEndedCalls/replications) + "		#");
-		System.out.println("# Total average Totla Calls:		" + String.format("%.5g",(double) sumTotalCalls/replications) + "		#");
+		System.out.println("# Average total calls:		" + String.format("%.5g",(double) sumTotalCalls/replications) + "		#");
+		System.out.println("# Average blocked calls:: 	" + String.format("%.5g",(double) sumBlockedCalls/replications) + "		#");
+		System.out.println("# Average dropped calls:		" +  String.format("%.5g",(double) sumDroppedCalls/replications) + "		#");
+//		System.out.println("# Total average Ended Calls:		" + String.format("%.5g",(double) sumEndedCalls/replications) + "		#");
+		System.out.println("# Percent blocked calls:		" + String.format("%.5g",(double) 100*sumBlockedCalls/sumTotalCalls)+ "		#");
+		System.out.println("# Average dropped calls:		" + String.format("%.5g",(double) 100*sumDroppedCalls/(sumTotalCalls-sumBlockedCalls)) + "		#");
 		System.out.println("#########################################################");
 	}
 
