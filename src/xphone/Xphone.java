@@ -12,6 +12,10 @@ public class Xphone {
 	static int reservedChannels = 0;
 	static Random rnd = new Random();
 	static CallSimulation[] simulation;
+	static private int sumBlockedCalls = 0;
+	static private double sumDroppedCalls = 0;
+	static private double sumEndedCalls = 0;
+	static private double sumTotalCalls = 0;
 
 	/**
 	 * @param args
@@ -46,38 +50,45 @@ public class Xphone {
 		for (int i = 0; i < replications; i++) {
 			long rndSeed = rnd.nextLong();
 			simulation[i] = new CallSimulation(rndSeed, length, warmUp, channels, reservedChannels);
-
+			
+			sumBlockedCalls += simulation[i].getBlockedCalls();
+			sumDroppedCalls += simulation[i].getDroppedCalls();
+			sumEndedCalls += simulation[i].getEndedCalls();
+			sumTotalCalls += simulation[i].getTotalCalls();
+			
 			//TODO: Visa resultat för varje replication!
-//			System.out.println("#########################################################");
-//			System.out.println("#							#");
-//			System.out.println("# Replication " + (i + 1) + "					#");
-//			System.out.println("#							#");
-//			System.out.println("#########################################################");
-//			System.out.println("#							#");
-//			System.out.println("# Total customers:			" + simulation[i].getTotalCustomers() + "		#");
-//			System.out.println("# Rejected customers:			" + String.format("%.5g",100*simulation[i].getPercentRejected()) + "%		#");
-//			System.out.println("# Average queueing time:		" + String.format("%.5g",simulation[i].getAverageQueueTime()) + " min	#");
-//			System.out.println("#########################################################");
-//			System.out.println("");
+			System.out.println("#########################################################");
+			System.out.println("#							#");
+			System.out.println("# Replica. " + (i + 1) + "						#");
+			System.out.println("#							#");
+			System.out.println("#########################################################");
+			System.out.println("#							#");
+			System.out.println("# Blocked Calls:	" + simulation[i].getBlockedCalls() + "				#");
+			System.out.println("# Dropped Calls:	" + simulation[i].getDroppedCalls() + "				#");
+			System.out.println("# Ended Calls:		" + simulation[i].getEndedCalls() + " 				#");
+			System.out.println("# Total Calls:		" + simulation[i].getTotalCalls() + "				#");
+			System.out.println("#########################################################");
+			System.out.println("");
 
 
 
 		}
 		//TODO: Visa medelvärden för alla körningar.
-//		System.out.println("#########################################################");
-//		System.out.println("#							#");
-//		System.out.println("# Average of: "+ replications +" replications with			#");
-//		System.out.println("#							#");
-//		System.out.println("# Seed:						" + seed + "	#");
-//		System.out.println("# Replications:					" + replications + "	#");
-//		System.out.println("# Queue:					" + maxQueueSize + "	#");
-//		System.out.println("# Replication length:				" + modelTime + " min	#");
-//		System.out.println("#							#");
-//		System.out.println("#########################################################");
-//		System.out.println("# Total average customers: 		" + String.format("%.5g",(double) sumTotalCustomers/replications) + "		#");
-//		System.out.println("# Total average percent rejected:	" +  String.format("%.5g",(double) 100*sumPercentRejected/replications) + "%		#");
-//		System.out.println("# Total average average queue time:	" + String.format("%.5g",(double) sumAverageQueueTime/replications) + " min	#");
-//		System.out.println("#########################################################");
+		System.out.println("#########################################################");
+		System.out.println("#							#");
+		System.out.println("# Average of: "+ replications +" replications with			#");
+		System.out.println("#							#");
+		System.out.println("# Seed:						" + seed + "	#");
+		System.out.println("# Replications:					" + replications + "	#");
+		System.out.println("# Channels:					" + channels + "	#");
+		System.out.println("# Reserved Channels:				"  + reservedChannels +  " 	#");
+		System.out.println("#							#");
+		System.out.println("#########################################################");
+		System.out.println("# Total average Blocked Calls:: 	" + String.format("%.5g",(double) sumBlockedCalls/replications) + "		#");
+		System.out.println("# Total average Dropped Calls:		" +  String.format("%.5g",(double) sumDroppedCalls/replications) + "		#");
+		System.out.println("# Total average Ended Calls:		" + String.format("%.5g",(double) sumEndedCalls/replications) + "		#");
+		System.out.println("# Total average Totla Calls:		" + String.format("%.5g",(double) sumTotalCalls/replications) + "		#");
+		System.out.println("#########################################################");
 	}
 
 }

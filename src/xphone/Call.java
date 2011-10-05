@@ -11,13 +11,17 @@ public class Call {
 	private double position;
 	private double positionEndCall;
 	
+	public void setPositionEndCall(double positionEndCall) {
+		this.positionEndCall = positionEndCall;
+	}
+
 	public Call(int id, double position, double speed, double startTime, double endTime) {
 		this.id = id;
 		this.position = position;
 		this.speed = speed;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.durationTime = this.getCallDuration();
+		this.durationTime = this.endTime - this.startTime;
 		this.endTime = this.startTime + this.durationTime;
 		this.positionEndCall = this.position + (this.durationTime * this.speed)/60/60;
 	}
@@ -40,7 +44,7 @@ public class Call {
 	}
 	
 	public double getCallDuration() {
-		return (this.endTime-this.startTime);
+		return this.durationTime;
 	}
 
 	/**
@@ -84,10 +88,10 @@ public class Call {
 	
 	public Event generateNextEvent(double currentTime, double distanceToHandover, double distanceToEndCall) {
 		if (distanceToHandover >= distanceToEndCall) {
-			System.out.println("Call " + this.id + " new EndCall " + endTime);
+//			System.out.println("Call " + this.id + " NEW ENDCALL " + endTime);
 			return (new EndCall(id, this, endTime));
 		} else {
-			System.out.println("Call " + this.id + " new HandOver time: " + (currentTime + distanceToHandover*60*60/speed));
+//			System.out.println("Call " + this.id + " NEW HANDOVER AT: " + (currentTime + distanceToHandover*60*60/speed));
 			return (new Handover(id, this, currentTime, currentTime + distanceToHandover*60*60/speed));
 		}
 		

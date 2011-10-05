@@ -1,5 +1,7 @@
 package xphone;
 
+import sun.tools.tree.LengthExpression;
+
 public class BaseStation {
 
 	int id;
@@ -72,14 +74,24 @@ public class BaseStation {
 	}
 	
 	public void unAllocateChannel(){
-		currentUsedChannels--;
+		if (currentUsedReservedChannels > 0) {
+			currentUsedReservedChannels--;
+		} else {
+			currentUsedChannels--;
+		}
 	}
+	
+	public void allocateReservedChannel(){
+		currentUsedReservedChannels++;
+	}
+	
 	
 	public String toString(){
 		String out = "";
 		out += "Basestation id: " + this.id + "\n";
 		out += "Range: " + getStartRadius() + " - " + getEndRadius() + "\n";
-		out += "Used std. channels: " + getCurrentUsedChannels() + " of " + this.channels + "\n";
+		out += "Used ttl. channels: " + (getCurrentUsedChannels()+getCurrentUsedReservedChannels()) + " of " + this.channels + "\n";
+		out += "Used std. channels: " + getCurrentUsedChannels() + " of " + (this.channels-this.reservedChannels) + "\n";
 		out += "Used res. channels: " + getCurrentUsedReservedChannels() + " of " + this.reservedChannels + "\n";
 		return out;
 		
