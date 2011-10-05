@@ -10,7 +10,7 @@ public class CallSimulation {
 //	 final  int ba = 800;
 //	 final  int c = 200;
 
-	final double ARRIVALRATE = 0.4213;
+	final double ARRIVALRATE =  0.4213;
 	final double DURATION = 0.0051;
 	
 	final double MEAN = 121.495;
@@ -290,11 +290,14 @@ public class CallSimulation {
 	}
 
 //	public double calculate() {
-//		double random = rnd.nextDouble();
-//		if(random <= 0.25)
-//			return a + Math.sqrt(random*(ba-a)*(c-a));
-//		else
-//			return ba - Math.sqrt(random*(ba-a)*(ba-c));
+	double random = rnd.nextDouble();
+//	if(random <= 0.25)
+//		return (Math.sqrt(random*160000));
+//		//return a + Math.sqrt(random*(ba-a)*(c-a));
+//	else
+//		return (800 - Math.sqrt(479900 - 479900*random));
+//		//return ba - Math.sqrt(random*(ba-a)*(ba-c));
+	
 //	}
 	public int getTotalCalls() {
 		return totalCalls;
