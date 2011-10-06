@@ -1,100 +1,100 @@
- Percent Blocked Calls:	0.51130 %
- Percent Blocked Calls:	0.71283 %
- Percent Blocked Calls:	0.84898 %
- Percent Blocked Calls:	0.62484 %
- Percent Blocked Calls:	0.83967 %
- Percent Blocked Calls:	0.50425 %
- Percent Blocked Calls:	0.39557 %
- Percent Blocked Calls:	0.39134 %
- Percent Blocked Calls:	0.33872 %
- Percent Blocked Calls:	0.29388 %
- Percent Blocked Calls:	0.36852 %
- Percent Blocked Calls:	0.20812 %
- Percent Blocked Calls:	0.36784 %
- Percent Blocked Calls:	0.70499 %
- Percent Blocked Calls:	0.48335 %
- Percent Blocked Calls:	0.50667 %
- Percent Blocked Calls:	0.41863 %
- Percent Blocked Calls:	0.41472 %
- Percent Blocked Calls:	0.80877 %
- Percent Blocked Calls:	0.51310 %
- Percent Blocked Calls:	0.37807 %
- Percent Blocked Calls:	0.69337 %
- Percent Blocked Calls:	0.69480 %
- Percent Blocked Calls:	0.43597 %
- Percent Blocked Calls:	0.90522 %
- Percent Blocked Calls:	0.52411 %
- Percent Blocked Calls:	0.45105 %
- Percent Blocked Calls:	0.23898 %
- Percent Blocked Calls:	0.57069 %
- Percent Blocked Calls:	0.42610 %
- Percent Blocked Calls:	0.42735 %
- Percent Blocked Calls:	0.73879 %
- Percent Blocked Calls:	0.71165 %
- Percent Blocked Calls:	0.37204 %
- Percent Blocked Calls:	0.48141 %
- Percent Blocked Calls:	0.32267 %
- Percent Blocked Calls:	0.69949 %
- Percent Blocked Calls:	0.52233 %
- Percent Blocked Calls:	0.60052 %
- Percent Blocked Calls:	0.45552 %
- Percent Blocked Calls:	0.55688 %
- Percent Blocked Calls:	0.39401 %
- Percent Blocked Calls:	0.55017 %
- Percent Blocked Calls:	0.21042 %
- Percent Blocked Calls:	0.48681 %
- Percent Blocked Calls:	0.61745 %
- Percent Blocked Calls:	0.74330 %
- Percent Blocked Calls:	0.52056 %
- Percent Blocked Calls:	1.0856 %
- Percent Blocked Calls:	0.65600 %
- Percent Blocked Calls:	1.1440 %
- Percent Blocked Calls:	0.42633 %
- Percent Blocked Calls:	0.64430 %
- Percent Blocked Calls:	0.75717 %
- Percent Blocked Calls:	0.65755 %
- Percent Blocked Calls:	0.71828 %
- Percent Blocked Calls:	0.79702 %
- Percent Blocked Calls:	1.0331 %
- Percent Blocked Calls:	0.26434 %
- Percent Blocked Calls:	0.99591 %
- Percent Blocked Calls:	0.52260 %
- Percent Blocked Calls:	0.90580 %
- Percent Blocked Calls:	0.31356 %
- Percent Blocked Calls:	0.61679 %
- Percent Blocked Calls:	0.61203 %
- Percent Blocked Calls:	0.51059 %
- Percent Blocked Calls:	0.86602 %
- Percent Blocked Calls:	0.53206 %
- Percent Blocked Calls:	0.93848 %
- Percent Blocked Calls:	0.50079 %
- Percent Blocked Calls:	0.40118 %
- Percent Blocked Calls:	0.55659 %
- Percent Blocked Calls:	0.42689 %
- Percent Blocked Calls:	0.69785 %
- Percent Blocked Calls:	0.92130 %
- Percent Blocked Calls:	0.60099 %
- Percent Blocked Calls:	0.44433 %
- Percent Blocked Calls:	0.51927 %
- Percent Blocked Calls:	0.38850 %
- Percent Blocked Calls:	0.52056 %
- Percent Blocked Calls:	0.75482 %
- Percent Blocked Calls:	0.56346 %
- Percent Blocked Calls:	0.47344 %
- Percent Blocked Calls:	0.50092 %
- Percent Blocked Calls:	0.49673 %
- Percent Blocked Calls:	0.58402 %
- Percent Blocked Calls:	0.74074 %
- Percent Blocked Calls:	0.42542 %
- Percent Blocked Calls:	0.60959 %
- Percent Blocked Calls:	0.79218 %
- Percent Blocked Calls:	0.44902 %
- Percent Blocked Calls:	0.44737 %
- Percent Blocked Calls:	0.34741 %
- Percent Blocked Calls:	0.29070 %
- Percent Blocked Calls:	0.57956 %
- Percent Blocked Calls:	0.31504 %
- Percent Blocked Calls:	0.80919 %
- Percent Blocked Calls:	0.67028 %
- Percent Blocked Calls:	0.57173 %
- Percent Blocked Calls:	0.75442 %
+0.51130
+0.71283
+0.84898
+0.62484
+0.83967
+0.50425
+0.39557
+0.39134
+0.33872
+0.29388
+0.36852
+0.20812
+0.36784
+0.70499
+0.48335
+0.50667
+0.41863
+0.41472
+0.80877
+0.51310
+0.37807
+0.69337
+0.69480
+0.43597
+0.90522
+0.52411
+0.45105
+0.23898
+0.57069
+0.42610
+0.42735
+0.73879
+0.71165
+0.37204
+0.48141
+0.32267
+0.69949
+0.52233
+0.60052
+0.45552
+0.55688
+0.39401
+0.55017
+0.21042
+0.48681
+0.61745
+0.74330
+0.52056
+1.0856
+0.65600
+1.1440
+0.42633
+0.64430
+0.75717
+0.65755
+0.71828
+0.79702
+1.0331
+0.26434
+0.99591
+0.52260
+0.90580
+0.31356
+0.61679
+0.61203
+0.51059
+0.86602
+0.53206
+0.93848
+0.50079
+0.40118
+0.55659
+0.42689
+0.69785
+0.92130
+0.60099
+0.44433
+0.51927
+0.38850
+0.52056
+0.75482
+0.56346
+0.47344
+0.50092
+0.49673
+0.58402
+0.74074
+0.42542
+0.60959
+0.79218
+0.44902
+0.44737
+0.34741
+0.29070
+0.57956
+0.31504
+0.80919
+0.67028
+0.57173
+0.75442

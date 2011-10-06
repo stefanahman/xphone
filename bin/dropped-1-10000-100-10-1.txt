@@ -1,100 +1,100 @@
- Percent Dropped Calls:	0.71058 %
- Percent Dropped Calls:	1.1140 %
- Percent Dropped Calls:	1.2336 %
- Percent Dropped Calls:	0.74113 %
- Percent Dropped Calls:	0.93284 %
- Percent Dropped Calls:	0.69987 %
- Percent Dropped Calls:	0.69537 %
- Percent Dropped Calls:	0.66190 %
- Percent Dropped Calls:	0.60734 %
- Percent Dropped Calls:	0.40706 %
- Percent Dropped Calls:	0.61399 %
- Percent Dropped Calls:	0.55336 %
- Percent Dropped Calls:	0.82777 %
- Percent Dropped Calls:	0.57947 %
- Percent Dropped Calls:	0.57065 %
- Percent Dropped Calls:	0.75737 %
- Percent Dropped Calls:	0.50545 %
- Percent Dropped Calls:	0.71146 %
- Percent Dropped Calls:	0.98143 %
- Percent Dropped Calls:	0.76461 %
- Percent Dropped Calls:	0.68757 %
- Percent Dropped Calls:	1.2067 %
- Percent Dropped Calls:	1.0212 %
- Percent Dropped Calls:	0.63694 %
- Percent Dropped Calls:	1.1099 %
- Percent Dropped Calls:	0.93135 %
- Percent Dropped Calls:	0.64378 %
- Percent Dropped Calls:	0.72835 %
- Percent Dropped Calls:	0.86728 %
- Percent Dropped Calls:	0.94289 %
- Percent Dropped Calls:	0.81633 %
- Percent Dropped Calls:	0.88424 %
- Percent Dropped Calls:	0.93884 %
- Percent Dropped Calls:	0.75431 %
- Percent Dropped Calls:	0.70537 %
- Percent Dropped Calls:	0.46385 %
- Percent Dropped Calls:	0.85118 %
- Percent Dropped Calls:	0.77148 %
- Percent Dropped Calls:	0.92986 %
- Percent Dropped Calls:	0.57174 %
- Percent Dropped Calls:	0.97166 %
- Percent Dropped Calls:	0.77333 %
- Percent Dropped Calls:	0.66507 %
- Percent Dropped Calls:	0.45442 %
- Percent Dropped Calls:	0.85826 %
- Percent Dropped Calls:	0.76419 %
- Percent Dropped Calls:	1.0521 %
- Percent Dropped Calls:	0.76882 %
- Percent Dropped Calls:	1.2163 %
- Percent Dropped Calls:	0.96463 %
- Percent Dropped Calls:	1.2490 %
- Percent Dropped Calls:	0.70461 %
- Percent Dropped Calls:	0.98093 %
- Percent Dropped Calls:	1.0445 %
- Percent Dropped Calls:	0.93758 %
- Percent Dropped Calls:	0.51477 %
- Percent Dropped Calls:	1.1902 %
- Percent Dropped Calls:	1.0565 %
- Percent Dropped Calls:	0.45528 %
- Percent Dropped Calls:	0.93701 %
- Percent Dropped Calls:	0.80150 %
- Percent Dropped Calls:	1.1870 %
- Percent Dropped Calls:	0.52910 %
- Percent Dropped Calls:	1.0068 %
- Percent Dropped Calls:	0.78188 %
- Percent Dropped Calls:	0.54759 %
- Percent Dropped Calls:	0.96279 %
- Percent Dropped Calls:	0.62348 %
- Percent Dropped Calls:	1.2477 %
- Percent Dropped Calls:	0.85676 %
- Percent Dropped Calls:	0.59588 %
- Percent Dropped Calls:	0.94162 %
- Percent Dropped Calls:	0.75943 %
- Percent Dropped Calls:	0.84255 %
- Percent Dropped Calls:	1.0732 %
- Percent Dropped Calls:	0.93209 %
- Percent Dropped Calls:	0.55777 %
- Percent Dropped Calls:	0.77050 %
- Percent Dropped Calls:	0.41929 %
- Percent Dropped Calls:	0.79470 %
- Percent Dropped Calls:	0.79533 %
- Percent Dropped Calls:	0.79019 %
- Percent Dropped Calls:	0.72328 %
- Percent Dropped Calls:	0.56165 %
- Percent Dropped Calls:	0.76862 %
- Percent Dropped Calls:	0.70327 %
- Percent Dropped Calls:	0.91595 %
- Percent Dropped Calls:	0.59283 %
- Percent Dropped Calls:	0.91867 %
- Percent Dropped Calls:	1.1550 %
- Percent Dropped Calls:	0.77936 %
- Percent Dropped Calls:	0.80128 %
- Percent Dropped Calls:	0.43325 %
- Percent Dropped Calls:	0.69612 %
- Percent Dropped Calls:	0.99063 %
- Percent Dropped Calls:	0.58511 %
- Percent Dropped Calls:	1.1959 %
- Percent Dropped Calls:	0.78782 %
- Percent Dropped Calls:	0.74094 %
- Percent Dropped Calls:	0.79344 %
+0.71058
+1.1140
+1.2336
+0.74113
+0.93284
+0.69987
+0.69537
+0.66190
+0.60734
+0.40706
+0.61399
+0.55336
+0.82777
+0.57947
+0.57065
+0.75737
+0.50545
+0.71146
+0.98143
+0.76461
+0.68757
+1.2067
+1.0212
+0.63694
+1.1099
+0.93135
+0.64378
+0.72835
+0.86728
+0.94289
+0.81633
+0.88424
+0.93884
+0.75431
+0.70537
+0.46385
+0.85118
+0.77148
+0.92986
+0.57174
+0.97166
+0.77333
+0.66507
+0.45442
+0.85826
+0.76419
+1.0521
+0.76882
+1.2163
+0.96463
+1.2490
+0.70461
+0.98093
+1.0445
+0.93758
+0.51477
+1.1902
+1.0565
+0.45528
+0.93701
+0.80150
+1.1870
+0.52910
+1.0068
+0.78188
+0.54759
+0.96279
+0.62348
+1.2477
+0.85676
+0.59588
+0.94162
+0.75943
+0.84255
+1.0732
+0.93209
+0.55777
+0.77050
+0.41929
+0.79470
+0.79533
+0.79019
+0.72328
+0.56165
+0.76862
+0.70327
+0.91595
+0.59283
+0.91867
+1.1550
+0.77936
+0.80128
+0.43325
+0.69612
+0.99063
+0.58511
+1.1959
+0.78782
+0.74094
+0.79344
