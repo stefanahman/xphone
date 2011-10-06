@@ -1,7 +1,5 @@
 package xphone;
 
-import sun.tools.tree.LengthExpression;
-
 public class BaseStation {
 
 	int id;

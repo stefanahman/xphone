@@ -45,8 +45,6 @@ public class CallSimulation {
 
 	private Event currentEvent;
 	private StartCall startCall;
-	private EndCall endCall;
-	private Handover handover;
 	
 	private int droppedCalls = 0;
 	private int blockedCalls = 0;
@@ -77,9 +75,12 @@ public class CallSimulation {
 		startTime = calculateInterArrivalTime();
 		endTime = startTime + calculateCallDuration();
 		
+		
+		
 		// Skapa första samtalet
 		call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), startTime, endTime);
 		startCall = new StartCall(totalCalls, call, startTime);
+		
 		if(clock>warmUp)
 			totalCalls++;
 		
@@ -152,10 +153,10 @@ public class CallSimulation {
 			call = new Call(totalCalls, calculateStartPosition(), calculateSpeed(), startTime, endTime);
 			startCall = new StartCall(totalCalls, call, startTime);
 			
+			if(clock>warmUp)
+				totalCalls++;
 			
 			if(length >= startCall.getTime()){ //Om uträknad tid överskrider stängningstid, neka samtal
-				if(clock>warmUp)
-					totalCalls++;
 				fel.insertSorted(startCall);
 			}
 			//TODO: Stoppa ej in i fel vid slut av tid.
@@ -164,12 +165,12 @@ public class CallSimulation {
 //			System.out.println(" ");
 			call = ev.getCall();
 //			System.out.println(" -- HANDOVER CALL " + call.getId() + " --");
-			// Hämta samtalet från eventet
+//			Hämta samtalet från eventet
 			
 //			System.out.println("Time " + clock + "s");
 			
-			if(call.getPosition() >= 40){
-				call.setPositionEndCall(call.getPositionEndCall() - 40);
+			if(call.getPosition() >= LENGTHOFHIGHWAY){
+				call.setPositionEndCall(call.getPositionEndCall() - LENGTHOFHIGHWAY);
 			}
 			
 //			System.out.println("Position before: " + call.getPosition() + "km");
@@ -222,8 +223,9 @@ public class CallSimulation {
 		//			annars: dropCall
 //					System.out.println(" ");
 				} else {
-					if(clock>warmUp)
+					if(clock>warmUp){
 						droppedCalls++;
+					}
 //					log.droppedCall(clock);
 //					System.out.println("Called is dropped");
 				} 
