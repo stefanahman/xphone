@@ -60,7 +60,6 @@ public class Xphone {
 			testblocked += (double) 100*simulation[i].getBlockedCalls()/simulation[i].getTotalCalls();
 			testdropped += (double) 100*simulation[i].getDroppedCalls()/(simulation[i].getTotalCalls()-simulation[i].getBlockedCalls());
 			
-			//TODO: Visa resultat för varje replication!
 			System.out.println("#########################################################");
 			System.out.println("#							#");
 			System.out.println("# Replication. " + (i + 1) + "					#");
@@ -70,7 +69,6 @@ public class Xphone {
 			System.out.println(" Total Calls:		" + simulation[i].getTotalCalls());
 			System.out.println(" Blocked Calls:		" + simulation[i].getBlockedCalls());
 			System.out.println(" Dropped Calls:		" + simulation[i].getDroppedCalls());
-//			System.out.println(" Ended Calls:			" + simulation[i].getEndedCalls());
 			System.out.println(" Percent Blocked Calls:	" + String.format("%.4g",(double) 100*simulation[i].getBlockedCalls()/simulation[i].getTotalCalls()) + " %");
 			System.out.println(" Percent Dropped Calls:	" + String.format("%.4g",(double) 100*simulation[i].getDroppedCalls()/(simulation[i].getTotalCalls()-simulation[i].getBlockedCalls())) + " %");
 			System.out.println("");
@@ -80,7 +78,6 @@ public class Xphone {
 
 
 		}
-		//TODO: Visa medelvärden för alla körningar.
 		System.out.println("#########################################################");
 		System.out.println("");
 		System.out.println(" Average of: "+ replications +" replications with");

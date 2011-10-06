@@ -4,9 +4,6 @@ import java.util.LinkedList;
 
 public class FutureEventList extends LinkedList<Event>{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public FutureEventList() {

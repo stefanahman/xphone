@@ -39,7 +39,6 @@ public class Call {
 	}
 
 	public int calculateNoOfHandovers() {
-		//TODO: Beräkna hur många handovers och vilka basstationer det gäller
 		return noOfHandovers;
 	}
 	
