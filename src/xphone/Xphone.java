@@ -57,7 +57,7 @@ public class Xphone {
 			sumBlockedCalls += simulation[i].getBlockedCalls();
 			sumDroppedCalls += simulation[i].getDroppedCalls();
 			sumTotalCalls += simulation[i].getTotalCalls();
-			testblocked += (double) 100*simulation[i].getDroppedCalls()/simulation[i].getTotalCalls();
+			testblocked += (double) 100*simulation[i].getBlockedCalls()/simulation[i].getTotalCalls();
 			testdropped += (double) 100*simulation[i].getDroppedCalls()/(simulation[i].getTotalCalls()-simulation[i].getBlockedCalls());
 			
 			//TODO: Visa resultat för varje replication!
@@ -71,7 +71,7 @@ public class Xphone {
 			System.out.println(" Blocked Calls:		" + simulation[i].getBlockedCalls());
 			System.out.println(" Dropped Calls:		" + simulation[i].getDroppedCalls());
 //			System.out.println(" Ended Calls:			" + simulation[i].getEndedCalls());
-			System.out.println(" Percent Blocked Calls:	" + String.format("%.5g",(double) 100*simulation[i].getDroppedCalls()/simulation[i].getTotalCalls()) + " %");
+			System.out.println(" Percent Blocked Calls:	" + String.format("%.5g",(double) 100*simulation[i].getBlockedCalls()/simulation[i].getTotalCalls()) + " %");
 			System.out.println(" Percent Dropped Calls:	" + String.format("%.5g",(double) 100*simulation[i].getDroppedCalls()/(simulation[i].getTotalCalls()-simulation[i].getBlockedCalls())) + " %");
 			System.out.println("");
 			System.out.println("#########################################################");
