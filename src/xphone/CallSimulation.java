@@ -290,14 +290,14 @@ public class CallSimulation {
 	}
 
 //	public double calculate() {
-	double random = rnd.nextDouble();
+//	double random = rnd.nextDouble();
 //	if(random <= 0.25)
 //		return (Math.sqrt(random*160000));
 //		//return a + Math.sqrt(random*(ba-a)*(c-a));
 //	else
 //		return (800 - Math.sqrt(479900 - 479900*random));
 //		//return ba - Math.sqrt(random*(ba-a)*(ba-c));
-	
+//	
 //	}
 	public int getTotalCalls() {
 		return totalCalls;
