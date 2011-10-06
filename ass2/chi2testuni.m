@@ -1,4 +1,4 @@
-function [ sumchi,df ] = chi2uni(list,interval,b)
+function [ sumchi,df ] = chi2testuni(list,interval,b)
 %Chi2Test
 %Input:     [list,interval,parameters,lambda]
 %Output:    [X0,Degrees of freedom]

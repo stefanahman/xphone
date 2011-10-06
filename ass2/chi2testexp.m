@@ -1,4 +1,4 @@
-function [ sumchi,df ] = chi2test( list,interval,param,lambda )
+function [ sumchi,df ] = chi2testexp( list,interval,param,lambda )
 %Chi2Test
 %Input:     [list,interval,parameters,lambda]
 %Output:    [X0,Degrees of freedom]
