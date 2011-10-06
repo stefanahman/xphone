@@ -25,7 +25,7 @@ end
 
 chilist = [];
 for l = 1:interval
-    chilist = [chilist ((obs(l)-expected)^2/expected)]; %#ok<AGROW>
+    chilist = [chilist ((obs(l)-expected).^2/expected)]; %#ok<AGROW>
 end
 
 sumchi = sum(chilist);

@@ -33,3 +33,4 @@ my = mean(X), sigma^2 = var(X)
 Calculate the mean and variance to get the two parameters. 
 
 
+ 1.3477 +- 0.0567
