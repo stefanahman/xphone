@@ -87,6 +87,7 @@ public class Xphone {
 		System.out.println("");
 		System.out.println(" Seed:			" + seed);
 		System.out.println(" Replications:		" + replications);
+		System.out.println(" Warm-up:	"  + warmUp);
 		System.out.println(" Channels:		" + channels);
 		System.out.println(" Reserved Channels:	"  + reservedChannels);
 		System.out.println("");
