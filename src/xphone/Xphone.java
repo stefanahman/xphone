@@ -71,8 +71,8 @@ public class Xphone {
 			System.out.println(" Blocked Calls:		" + simulation[i].getBlockedCalls());
 			System.out.println(" Dropped Calls:		" + simulation[i].getDroppedCalls());
 //			System.out.println(" Ended Calls:			" + simulation[i].getEndedCalls());
-			System.out.println(" Percent Blocked Calls:	" + String.format("%.5g",(double) 100*simulation[i].getBlockedCalls()/simulation[i].getTotalCalls()) + " %");
-			System.out.println(" Percent Dropped Calls:	" + String.format("%.5g",(double) 100*simulation[i].getDroppedCalls()/(simulation[i].getTotalCalls()-simulation[i].getBlockedCalls())) + " %");
+			System.out.println(" Percent Blocked Calls:	" + String.format("%.4g",(double) 100*simulation[i].getBlockedCalls()/simulation[i].getTotalCalls()) + " %");
+			System.out.println(" Percent Dropped Calls:	" + String.format("%.4g",(double) 100*simulation[i].getDroppedCalls()/(simulation[i].getTotalCalls()-simulation[i].getBlockedCalls())) + " %");
 			System.out.println("");
 			System.out.println("#########################################################");
 			System.out.println("");
@@ -93,11 +93,11 @@ public class Xphone {
 		System.out.println("");
 		System.out.println("#########################################################");
 		System.out.println("");
-		System.out.println(" Average total calls:	" + String.format("%.5g",(double) sumTotalCalls/replications));
-		System.out.println(" Average blocked calls: " + String.format("%.5g",(double) sumBlockedCalls/replications));
-		System.out.println(" Average dropped calls:	" +  String.format("%.5g",(double) sumDroppedCalls/replications));
-		System.out.println(" Percent blocked calls:	" + String.format("%.5g",(double) testblocked/replications)+ " %");
-		System.out.println(" Percent dropped calls:	" + String.format("%.5g",(double) testdropped/replications) + " %");
+		System.out.println(" Average total calls:	" + String.format("%.4g",(double) sumTotalCalls/replications));
+		System.out.println(" Average blocked calls: " + String.format("%.4g",(double) sumBlockedCalls/replications));
+		System.out.println(" Average dropped calls:	" +  String.format("%.4g",(double) sumDroppedCalls/replications));
+		System.out.println(" Percent blocked calls:	" + String.format("%.4g",(double) testblocked/replications)+ " %");
+		System.out.println(" Percent dropped calls:	" + String.format("%.4g",(double) testdropped/replications) + " %");
 		System.out.println("");
 		System.out.println("#########################################################");
 	}
